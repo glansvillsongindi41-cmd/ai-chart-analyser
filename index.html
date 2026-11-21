@@ -1,0 +1,82 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chart Analyser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #101827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #1e293b;
+            border-radius: 12px;
+        }
+
+        input, button {
+            padding: 12px;
+            margin: 12px;
+            max-width: 100%;
+        }
+
+        button {
+            background: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        img {
+            max-width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Chart Analyser</h1>
+        <p>Understand the forex market with intelligent chart analysis.</p>
+
+        <h3>Upload Your Trading Chart</h3>
+
+        <input type="file" id="chartUpload" accept="image/*">
+
+        <div id="preview"></div>
+
+        <button id="analyseButton">Analyse Chart</button>
+
+        <p id="result">Your analysis will appear here.</p>
+    </div>
+
+    <script>
+        const upload = document.getElementById("chartUpload");
+        const preview = document.getElementById("preview");
+
+        upload.addEventListener("change", function() {
+            const file = this.files[0];
+
+            if (file && file.type.startsWith("image/")) {
+                const image = document.createElement("img");
+                image.src = URL.createObjectURL(file);
+                preview.innerHTML = "";
+                preview.appendChild(image);
+            }
+        });
+    </script>
+
+</body>
+</html>
